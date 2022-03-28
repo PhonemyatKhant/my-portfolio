@@ -1,0 +1,101 @@
+$colors: (
+  "primary": #fbb70e,
+  "primarySoft": #fff696,
+  "secondary": #008f67,
+  "xiketic": #2f2520,
+  
+);
+//pink
+$colors: (
+  "primary": #eca6a8,
+  "primarySoft": #fffefe,
+  "secondary": #9c1f35,
+  "xiketic": #181c1d,
+  
+);
+//green
+$colors: (
+  "primary": #9bbf44,
+  "primarySoft": #ebe3cc,
+  "secondary": #2d6b28,
+  "xiketic": #39070b,
+  
+);
+// //dark blue
+// $colors: (
+//   "primary": #172b44,
+//   "primarySoft": #afb4b5,
+//   "secondary": #0f1212,
+//   "xiketic": #feffff,
+//   "light": #fcfff7,
+//   "linen": #f9ebe0,
+//   "dark": #050a0a,
+// );
+
+$fontWeight: (
+  "regular": 400,
+  "bold": 600,
+  "bolder": 800,
+);
+$paddding: 2rem 1rem;
+@mixin btn {
+  .contact-btn {
+    position: relative;
+    padding: 0.3rem 0.4rem;
+    border-radius: 4px;
+    @include flex(center);
+    background: getColor("secondary");
+
+    cursor: pointer;
+    span {
+      transition: 1s;
+      z-index: 3;
+      color: getColor("primarySoft");
+    }
+    &:hover::after {
+      width: 100%;
+    }
+    &::after {
+      transition: all 1s;
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4px;
+      width: 0;
+      height: 100%;
+      background-color: getColor("primarySoft");
+    }
+    &:hover {
+      span {
+        color: getColor("secondary");
+      }
+    }
+  }
+}
+@mixin title() {
+  .title {
+    text-align: center;
+    width: fit-content;
+    margin-left: 3vw;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      color: getColor("primarySoft");
+    }
+    h2 {
+      font-size: 1.875rem;
+      span {
+        font-size: 1.875rem;
+        color: getColor("primarySoft");
+      }
+    }
+  }
+}
+@mixin padding {
+  padding: 1rem 1.5rem;
+}

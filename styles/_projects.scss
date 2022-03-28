@@ -1,0 +1,123 @@
+.projects {
+  overflow: hidden;
+  position: relative;
+  @include title;
+  .fancy-circle {
+    z-index: -1;
+    border-radius: 50%;
+    border: solid 1px getColor("secondary");
+    width: 600px;
+    height: 600px;
+    position: absolute;
+  }
+  .project-container {
+    .intro-text {
+      position: relative;
+      p {
+        margin-left: 1rem;
+        position: relative;
+        z-index: 3;
+        font-size: 1.125rem;
+        font-weight: bold;
+        text-align: left;
+        padding-left: 10px;
+        border-left: 5px solid getColor("secondary");
+      }
+      .rocket-img {
+        position: absolute;
+        z-index: -1;
+        width: 286px;
+        height: 430px;
+        top: -10rem;
+        right: -5rem;
+      }
+    }
+    .project-item-container {
+      position: relative;
+      padding: 1rem;
+      padding-bottom: 5rem;
+      max-width: 85vw;
+      margin: 0 0 auto auto;
+      background: getColor("primarySoft");
+      border-top-left-radius: 10px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+
+      .project-item {
+        
+        text-align: center;
+        .seemore-btn {
+          position: relative;
+          top: 1rem;
+          padding: 0.3rem 0.4rem;
+          border-radius: 10px;
+          color: getColor("primarySoft");
+          background: getColor("primary");
+          text-transform: lowercase;
+          cursor: pointer;
+          font-family: "poppins";
+          font-size: 0.8rem;
+          font-weight: 600;
+          transition: all 0.5s;
+          &:hover {
+            background-color: getColor("primarySoft");
+            color: getColor("secondary");
+          }
+        }
+        .item-img {
+          box-shadow: 0 2px 18px #9bbf44;
+          border-radius: 10px;
+          border: solid 1px getColor("secondary");
+
+          max-width: 280px;
+          width: 250px;
+          height: 180px;
+          margin-bottom: 1rem;
+        }
+      }
+      .morepj-container {
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        .underline {
+          width: 100%;
+          height: 2px;
+          background-color: getColor("secondary");
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+@include tablet {
+  .projects .project-container .project-item-container {
+    grid-template-columns: 1fr 1fr;
+    .project-item .item-img {
+      max-width: 320px;
+    }
+  }
+}
+@include desktop {
+  .projects {
+    .fancy-circle {
+      width: 1000px;
+      height: 1000px;
+    }
+
+    .project-container {
+      @include flex(space-between);
+      align-items: flex-start;
+      column-gap: 5rem;
+      .intro-text {
+        .rocket-img {
+          top: 9.5rem;
+        }
+      }
+      .project-item-container {
+        flex: 1;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+}

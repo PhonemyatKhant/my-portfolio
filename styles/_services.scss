@@ -1,0 +1,84 @@
+.services {
+  overflow: hidden;
+  position: relative;
+  background-color: getColor("primarySoft");
+  text-align: center;
+  padding: 3rem 0;
+  @include title;
+  .img-container {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    img {
+      opacity: 10%;
+      min-width: 700px;
+      transform: rotate(-30deg);
+    }
+  }
+  .title {
+    position: relative;
+    z-index: 2;
+    h1 {
+      color: getColor("primary");
+    }
+    h2 {
+      color: getColor("xiketic");
+    }
+  }
+  .services-logo-container {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 3rem 6rem 3rem;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    img {
+      width: 60px;
+    }
+  }
+  .services-container {
+    position: relative;
+    z-index: 3;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    .service-item {
+      height: 300px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.377);
+      padding: 2rem;
+      border-radius: 10px;
+      background-color: #9abf4475;
+
+      img {
+        width: 100px;
+        margin: 0 auto;
+      }
+      h3 {
+        font-family: "barlow";
+        padding-bottom: 2rem;
+      }
+    }
+  }
+}
+@include tablet {
+  .services {
+    .services-logo-container {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  .services-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@include desktop {
+  .services {
+    .services-logo-container {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+  .services-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

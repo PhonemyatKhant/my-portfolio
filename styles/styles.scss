@@ -1,0 +1,361 @@
+@import "attributes";
+@import "media";
+@import "about";
+@import "services";
+@import "projects";
+@import "contact";
+html {
+  scroll-behavior: smooth;
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "poppins";
+  color: getColor("xiketic");
+  background: getColor("primary");
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+i,
+button {
+  color: getColor("xiketic");
+  font-size: 1.5rem;
+  border: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: getColor("xiketic");
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins";
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1rem;
+}
+h4 {
+  font-size: 0.8rem;
+}
+p {
+  font-family: "barlow";
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+span {
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+@media screen and (min-width: 756px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+@media screen and (min-width: 1440px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  body {
+    font-size: 1.2rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.5;
+  }
+}
+//##########################end of global classes###########################
+
+.reveal {
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+.reveal-right {
+  position: relative;
+  transform: translateX(100px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+.reveal-left {
+  position: relative;
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+.active {
+  transform: translateY(0px);
+  transform: translateX(0px);
+  opacity: 1;
+  transition: all 1s ease;
+}
+//hero section
+.hero {
+  @include flex(center);
+  position: relative;
+  overflow: hidden;
+  .img-container {
+    z-index: -100;
+    position: absolute;
+    left: 30vw;
+    img {
+      opacity: 20%;
+      min-width: 700px;
+      transform: rotate(30deg);
+    }
+  }
+  main {
+    .nav {
+      z-index: 100;
+      background: transparent;
+      @include padding;
+      .nav-header {
+        @include flex(space-between);
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 500;
+          cursor: pointer;
+          z-index: 1;
+        }
+        i {
+          z-index: 1;
+          transition: all 1s;
+          &:hover {
+            cursor: pointer;
+            color: getColor("primarySoft");
+          }
+        }
+      }
+      .nav-links {
+        height: 0;
+        overflow: hidden;
+
+        .links {
+          li .home-btn {
+            display: none;
+          }
+          li a {
+            display: block;
+            padding: 1rem;
+            transition: all 0.3s;
+            &:hover {
+              i {
+                color: getColor("primarySoft");
+              }
+              color: getColor("primarySoft");
+            }
+          }
+          li i {
+            transition: all 0.3s;
+            &:hover {
+              cursor: pointer;
+              color: getColor("primarySoft");
+            }
+          }
+          .close-btn {
+            display: none;
+          }
+        }
+      }
+      .social-links {
+        i {
+          transition: all 0.3s;
+          &:hover {
+            cursor: pointer;
+            color: getColor("primarySoft");
+          }
+        }
+
+        display: none;
+      }
+    }
+    .main-content {
+      overflow: hidden;
+      min-height: 100vh;
+
+      padding: 25vh 10vw;
+      position: relative;
+      .main-text-container {
+        z-index: 3;
+        position: relative;
+
+        h1 {
+          margin-bottom: 2rem;
+          color: getColor("primarySoft");
+        }
+        h2 {
+          font-size: 1.6rem;
+          margin-bottom: 4rem;
+        }
+        p {
+          font-style: italic;
+        }
+        .btn-container {
+          z-index: 3;
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          @include btn;
+          .project-btn {
+            background: transparent;
+            @include flex(space-between);
+            color: getColor("secondary");
+            transition: all 1s;
+            cursor: pointer;
+            span {
+              padding-left: 5px;
+              font-size: 0.96rem;
+            }
+            &:hover {
+              color: getColor("primarySoft");
+            }
+          }
+        }
+      }
+    }
+  }
+  .nav.toggle-overlay {
+    .nav-links {
+      transition: all 1s;
+      z-index: 100;
+      .links .close-btn {
+        display: block;
+      }
+      .links .home-btn {
+        display: block;
+      }
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      background-color: getColor("primary");
+      display: grid;
+      place-items: center;
+      .links li .close-btn {
+        display: block;
+      }
+      .links li a {
+        font-size: larger;
+      }
+    }
+  }
+  .nav.fixed-nav {
+    box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.2);
+    width: 100%;
+    background: getColor("primary");
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 1vw 10vw;
+  }
+}
+@include desktop {
+  .hero main {
+    .nav {
+      @include flex(space-between);
+      padding: 3vh 10vw;
+      .nav-header {
+        i {
+          display: none;
+        }
+      }
+
+      .nav-links {
+        flex-grow: 0;
+
+        height: auto !important;
+        .links {
+          @include flex(space-between);
+          li a {
+            padding: 0 1rem;
+          }
+          li i {
+            display: none;
+          }
+          .close-btn {
+            display: none;
+          }
+        }
+      }
+      .social-links {
+        @include flex(space-between);
+        gap: 0.5rem;
+      }
+    }
+
+    .main-content {
+      padding: 25vh 15vw;
+    }
+  }
+}
+
+/////////////////////////////////about/////////////////////////////////
+
+////////////about end
+
+/////////////////services section///////////////////
+
+////services end
+
+//////////////////////projects section ////////////////
+
+//projects end
+//contact
+
+//end of contact
