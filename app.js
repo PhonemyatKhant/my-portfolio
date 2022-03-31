@@ -148,7 +148,7 @@ const projectItemsArray = [
   },
   {
     img: `/IMG/grandma's-recipe.jpg`,
-    title: `Grandma's Recipe`,
+    title: `Daw Wine's Food Recipe`,
   },
   {
     img: `/IMG/js-calculator.jpg`,
