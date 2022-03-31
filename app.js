@@ -137,7 +137,7 @@ const servicesArray = [
   },
   {
     img: "/IMG/world-wide-web.png",
-    name: "Web Developing",
+    name: "Web Development",
     desc: "Creating or redesigning your websites in no time.",
   },
 ];
